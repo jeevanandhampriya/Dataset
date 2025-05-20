@@ -1,0 +1,19 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load dataset (assumes the CSV file is in the same directory)
+df = pd.read_csv("customer_purchasing_behavior.csv")
+
+# Sum of each item (how many times each was purchased)
+item_counts = df.sum()
+
+# Plotting the bar graph
+plt.figure(figsize=(15, 6))
+item_counts.sort_values(ascending=False).plot(kind='bar', color='skyblue')
+plt.title("Frequency of Items Purchased")
+plt.xlabel("Items")
+plt.ylabel("Number of Transactions Purchased")
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.show()
