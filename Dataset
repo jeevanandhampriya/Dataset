@@ -1,0 +1,24 @@
+import pandas as pd
+import random
+
+# Define item names (30 items)
+items = [
+    "Milk", "Bread", "Eggs", "Butter", "Cheese", "Apples", "Bananas", "Chicken", "Beef", "Fish",
+    "Rice", "Pasta", "Tomatoes", "Onions", "Lettuce", "Cereal", "Yogurt", "Juice", "Soda", "Coffee",
+    "Tea", "Sugar", "Salt", "Pepper", "Oil", "Flour", "Cookies", "Chips", "Ice_Cream", "Water"
+]
+
+# Generate synthetic data (20 transactions x 30 items)
+data = []
+for i in range(20):
+    transaction = [random.choice([0, 1]) for _ in range(30)]
+    data.append(transaction)
+
+# Create DataFrame
+df = pd.DataFrame(data, columns=items)
+
+# Save to CSV file
+df.to_csv("customer_purchasing_behavior.csv", index=False)
+
+# Show the DataFrame (optional)
+print(df)
